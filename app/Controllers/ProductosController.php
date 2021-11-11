@@ -12,7 +12,7 @@
 
         public  function retornarProductosPorId($request,$response,$args){
             $onjetoProducto=new Productos;
-            $Producto=$onjetoProducto->buscarProductosPorId($args['Id']);
+            $Producto=$onjetoProducto->buscarProductosPorId($args['nombre']);
             $response->getBody()->write(json_encode($Producto));
             return $response;
         }
@@ -21,7 +21,7 @@
             $json = $request->getBody();
             $json_id = json_decode($json,true);
             $onjetoProducto=new Productos;
-            $descripcionProductos=$onjetoProducto->buscarDescripcionProducto($json_id['id_producto']);
+            $descripcionProductos=$onjetoProducto->buscarDescripcionProducto($json_id['nombre']);
             $response->getBody()->write(json_encode($descripcionProductos));
             return $response;
         }
@@ -30,7 +30,7 @@
             $json = $request->getBody();
             $json_id = json_decode($json,true);
             $onjetoProducto=new Productos;
-            $descripcionProductos=$onjetoProducto->buscarEliminar($json_id['id_producto']);
+            $descripcionProductos=$onjetoProducto->buscarEliminar($json_id['nombre']);
             $response->getBody()->write(json_encode($descripcionProductos));
             return $response;
         }
@@ -38,7 +38,7 @@
             $json = $request->getBody();
             $json_id = json_decode($json,true);
             $onjetoProducto=new Productos;
-            $descripcionProductos=$onjetoProducto->buscarActualizacion($json_id['id_producto']);
+            $descripcionProductos=$onjetoProducto->buscarActualizacion($json_id['nombre']);
             $response->getBody()->write(json_encode($descripcionProductos));
             return $response;
         }
