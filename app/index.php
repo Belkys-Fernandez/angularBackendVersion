@@ -63,7 +63,8 @@ $app->group('/Productos', function (RouteCollectorProxy $group){
     
    
 });
-$app->gt  {
+$app->group('/Usuarios', function (RouteCollectorProxy $group){
+
       $group->get('/listaUsuario',\UsuariosController::class.':retornarListaUsuario');
       $group->get('/UsuarioPorId/{Id}',\UsuariosController::class.':retornarUsuarioPorId');
    
