@@ -64,10 +64,13 @@ $app->group('/Productos', function (RouteCollectorProxy $group){
    
 });
 $app->group('/Usuarios', function (RouteCollectorProxy $group){
-
+    
+   
       $group->get('/listaUsuario',\UsuariosController::class.':retornarListaUsuario');
       $group->get('/UsuarioPorId/{Id}',\UsuariosController::class.':retornarUsuarioPorId');
-   
+    
+      $group->post('/buscarUsuario',\UsuariosController::class.':retornarBuscarUsuario');
+      $group->post('/registrarUsuario',\UsuariosController::class.':retornarRegistroUsuario');
       $group->post('/descripcionUsuario',\UsuariosController::class.':retornarUsuarioDescripcion');
       $group->delete('/borrarUsuario',\UsuariosController::class.':retornarEliminacion');
       $group->post('/actualizarUsuario',\UsuariosController::class.':retornarActualizacion');
