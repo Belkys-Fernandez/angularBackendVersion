@@ -25,6 +25,15 @@
             $response->getBody()->write(json_encode($descripcionProductos));
             return $response;
         }
+        public  function retornarRegistroProductos($request,$response,$args){
+            $json = $request->getBody();
+            $json_id = json_decode($json,true);
+            $onjetoProducto=new Productos;
+            $registroProducto=$onjetoProducto->buscarRegistroProducto($json_id['nombre']);
+            $response->getBody()->write(json_encode($registroProducto));
+            return $response;
+        }
+
 
         public  function retornarEliminacion($request,$response,$args){
             $json = $request->getBody();

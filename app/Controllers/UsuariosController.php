@@ -1,7 +1,7 @@
 <?php
 
 
-    class usuarioControllerex{
+    class UsuariosController{
 
         public static function retornarListaUsuario($request,$response,$args){
             $listaUsuario=Usuarios::buscarListaUsuario();

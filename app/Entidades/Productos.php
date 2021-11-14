@@ -22,6 +22,21 @@ public function buscarProductosPorId($nombre){
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Productos'); 
 }
 
+public function buscarRegistrarProductos($datosUsuarioDecodificado){
+    $nom=$datosUsuarioDecodificado['nombre'];
+    $categ=$datosUsuarioDecodificado['categoria'];
+    $prec=$datosUsuarioDecodificado['precio'];
+    $pres=$datosUsuarioDecodificado['presentacion'];
+  
+
+    $accesoDatos=Acceso_datos::obtenerConexionBD();
+    $consulta=$accesoDatos->prepararConsulta("INSERT INTO productos(
+                                                    nombre, categoria, precio, presentacion)
+                                                    VALUES ('$nom', '$categ', '$prec', '$pres')" );
+    $consulta->execute();
+    return $consulta->fetchAll(PDO::FETCH_CLASS,'Productos'); 
+}
+
 public function buscarDescripcionProducto($nombre){
     $accesoDatos=Acceso_datos::obtenerConexionBD();
     $consulta=$accesoDatos->prepararConsulta("SELECT categoria FROM productos WHERE nombre= $nombre"  );

@@ -46,6 +46,7 @@
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios'); 
         }
+        
 
         
       
