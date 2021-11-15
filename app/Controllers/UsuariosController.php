@@ -18,6 +18,15 @@
             $response->getBody()->write(json_encode($buscarUsuario));
             return $response;
         }
+        public  function retornarLogin($request,$response,$args){
+            $json = $request->getBody();
+            $json_id = json_decode($json,true);
+            $onjetoLogin=new Usuarios;
+            $retornarLogin=$onjetoLogin->retornarLogin($json_id['usuario','password']);
+            $response->getBody()->write(json_encode($retornarLogin));
+            return $response;
+        }
+        
         
     
         public  function retornarUsuarioPorId($request,$response,$args){

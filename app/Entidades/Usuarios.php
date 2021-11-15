@@ -5,7 +5,7 @@
         public $usuario;
         public $nombre;
         public $apellido;
-        public $sexo;
+        public $cuenta;
         public $password;
 
        
@@ -25,9 +25,21 @@
             return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios'); 
         }
         
+    
+
         public function buscarDescripcionUsuario($usuario){
             $accesoDatos=Acceso_datos::obtenerConexionBD();
             $consulta=$accesoDatos->prepararConsulta("SELECT contra FROM usuarios WHERE usuario= $usuario "  );
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios'); 
+        }
+
+        public function retornarLogin($datosLogin){
+            $user=$datosLogin['usuario'];
+            $password=$datosLogin['password'];
+            
+            $accesoDatos=Acceso_datos::obtenerConexionBD();  
+            $consulta=$accesoDatos->prepararConsulta("SELECT * FROM usuarios WHERE usuario= ''and password='' "  );
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios'); 
         }
@@ -36,7 +48,7 @@
             $user=$datosUsuarioDecodificado['usuario'];
             $nom=$datosUsuarioDecodificado['nombre'];
             $apell=$datosUsuarioDecodificado['apellido'];
-            $sexo=$datosUsuarioDecodificado['sexo'];
+            $sexo=$datosUsuarioDecodificado['cuenta'];
             $password=$datosUsuarioDecodificado['password'];
 
             $accesoDatos=Acceso_datos::obtenerConexionBD();
@@ -46,20 +58,20 @@
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios'); 
         }
-        
+
 
         
       
         public function buscarUsuario($usuario){
             $accesoDatos=Acceso_datos::obtenerConexionBD();
-            $consulta=$accesoDatos->prepararConsulta("SELECT password FROM usuarios WHERE usuario= $usuario "  );
+            $consulta=$accesoDatos->prepararConsulta("SELECT password FROM usuarios WHERE usuario='$usuario'" );
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios'); 
         }
 
         public function buscarEliminar($usuario){
             $accesoDatos=Acceso_datos::obtenerConexionBD();
-             $consulta=$accesoDatos->prepararConsulta("DELETE FROM usuarios WHERE usuario= $usuario "  );
+             $consulta=$accesoDatos->prepararConsulta("DELETE FROM usuarios WHERE usuario='$usuario'"  );
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios'); 
         }

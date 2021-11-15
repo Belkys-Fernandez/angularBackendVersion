@@ -69,6 +69,8 @@ $app->group('/Usuarios', function (RouteCollectorProxy $group){
    //registri
       $group->get('/listaUsuario',\UsuariosController::class.':retornarListaUsuario');
       $group->get('/UsuarioPorId/{Id}',\UsuariosController::class.':retornarUsuarioPorId');
+      $group->post('/login',\UsuariosController::class.':retornarlogin');
+
     
       $group->post('/buscarUsuario',\UsuariosController::class.':retornarBuscarUsuario');
       $group->post('/registrarUsuario',\UsuariosController::class.':retornarRegistroUsuario');
