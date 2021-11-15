@@ -22,7 +22,7 @@
             $json = $request->getBody();
             $json_id = json_decode($json,true);
             $onjetoLogin=new Usuarios;
-            $retornarLogin=$onjetoLogin->retornarLogin($json_id['usuario','password']);
+            $retornarLogin=$onjetoLogin->retornarLogin($json_id['usuario'], $json_id['password']);
             $response->getBody()->write(json_encode($retornarLogin));
             return $response;
         }
