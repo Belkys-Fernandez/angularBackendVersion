@@ -48,13 +48,13 @@
             $user=$datosUsuarioDecodificado['usuario'];
             $nom=$datosUsuarioDecodificado['nombre'];
             $apell=$datosUsuarioDecodificado['apellido'];
-            $sexo=$datosUsuarioDecodificado['cuenta'];
+            $cuenta=$datosUsuarioDecodificado['cuenta'];
             $password=$datosUsuarioDecodificado['password'];
 
             $accesoDatos=Acceso_datos::obtenerConexionBD();
             $consulta=$accesoDatos->prepararConsulta("INSERT INTO usuarios(
-                                                            usuario, nombre, apellido, sexo, password)
-                                                            VALUES ('$user', '$nom', '$apell', '$sexo', '$password')" );
+                                                            usuario, nombre, apellido, cuenta, password)
+                                                            VALUES ('$user', '$nom', '$apell', '$cuenta', '$password')" );
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_CLASS,'Usuarios'); 
         }
