@@ -22,7 +22,7 @@ public function buscarProductosPorId($nombre){
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Productos'); 
 }
 
-public function buscarRegistrarProductos($datosUsuarioDecodificado){
+public function RegistrarProducto($datosUsuarioDecodificado){
     $nom=$datosUsuarioDecodificado['nombre'];
     $categ=$datosUsuarioDecodificado['categoria'];
     $prec=$datosUsuarioDecodificado['precio'];
