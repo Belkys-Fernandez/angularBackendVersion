@@ -22,11 +22,11 @@ public function buscarProductosPorId($nombre){
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Productos'); 
 }
 
-public function RegistrarProducto($datosUsuarioDecodificado){
-    $nom=$datosUsuarioDecodificado['nombre'];
-    $categ=$datosUsuarioDecodificado['categoria'];
-    $prec=$datosUsuarioDecodificado['precio'];
-    $pres=$datosUsuarioDecodificado['presentacion'];
+public function RegistrarProducto($datosProductoDecodificado){
+    $nom=$datosProductoDecodificado['nombre'];
+    $categ=$datosProductoDecodificado['categoria'];
+    $prec=$datosProductoDecodificado['precio'];
+    $pres=$datosProductoDecodificado['presentacion'];
   
 
     $accesoDatos=Acceso_datos::obtenerConexionBD();

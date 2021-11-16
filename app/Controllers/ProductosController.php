@@ -25,12 +25,13 @@
             $response->getBody()->write(json_encode($descripcionProductos));
             return $response;
         }
+     
    
         public  function retornarRegistroProducto($request,$response,$args){
-            $json = $request->getBody();
-            $json_id = json_decode($json,true);
+            $datosProducto= $request->getBody();
+            $datosProductodecodificado = json_decode($datosProducto,true);
             $onjetoProducto=new Productos;
-            $registroProducto=$onjetoProducto->RegistrarProducto($json_id['nombre']);
+            $registroProducto=$onjetoProducto->RegistrarProducto($datosProductodecodificado);
             $response->getBody()->write(json_encode($registroProducto));
             return $response;
         }
