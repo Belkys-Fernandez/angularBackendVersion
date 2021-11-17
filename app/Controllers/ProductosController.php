@@ -41,15 +41,15 @@
             $json = $request->getBody();
             $json_id = json_decode($json,true);
             $onjetoProducto=new Productos;
-            $descripcionProductos=$onjetoProducto->buscarEliminar($json_id['nombre']);
-            $response->getBody()->write(json_encode($descripcionProductos));
+            $eliminarProductos=$onjetoProducto->buscarEliminar($json_id['nombre']);
+            $response->getBody()->write(json_encode($eliminarProductos));
             return $response;
         }
         public  function retornarActualizacion($request,$response,$args){
             $json = $request->getBody();
             $json_id = json_decode($json,true);
             $onjetoProducto=new Productos;
-            $descripcionProductos=$onjetoProducto->buscarActualizacion($json_id['nombre']);
+            $descripcionProductos=$onjetoProducto->buscarActualizacion($json_id);
             $response->getBody()->write(json_encode($descripcionProductos));
             return $response;
         }

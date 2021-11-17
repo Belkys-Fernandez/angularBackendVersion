@@ -52,9 +52,15 @@ public function buscarEliminar($nombre){
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Productos'); 
 }
 
-public function buscarActualizacion($nombre){
+public function buscarActualizacion($producto){
+    $nom=$producto['nombre'];
+    $categ=$producto['categoria'];
+    $prec=$producto['precio'];
+    $prec=$producto['presentacion'];
     $accesoDatos=Acceso_datos::obtenerConexionBD();
-    $consulta=$accesoDatos->prepararConsulta("SELECT * FROM productos WHERE nombre= $nombre"  );
+    $consulta=$accesoDatos->prepararConsulta("UPDATE productos
+                                                SET categoria='$categ', precio= '$prec', presentacion='$prec'
+                                                WHERE nombre='$nom';");
     $consulta->execute();
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Productos'); 
 }
