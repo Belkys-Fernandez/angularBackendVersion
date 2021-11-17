@@ -46,7 +46,7 @@ public function buscarDescripcionProducto($nombre){
 
 public function buscarEliminar($nombre){
     $accesoDatos=Acceso_datos::obtenerConexionBD();
-    var_dump("DELETE FROM productos WHERE nombre= '$nombre'")
+    var_dump("DELETE FROM productos WHERE nombre= '$nombre'");
      $consulta=$accesoDatos->prepararConsulta("DELETE FROM productos WHERE nombre= '$nombre'" );
     $consulta->execute();
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Productos'); 
