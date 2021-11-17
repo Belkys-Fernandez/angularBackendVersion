@@ -57,10 +57,10 @@ public function buscarActualizacion($producto){
     $nom=$producto['nombre'];
     $categ=$producto['categoria'];
     $prec=$producto['precio'];
-    $prec=$producto['presentacion'];
+    $pres=$producto['presentacion'];
     $accesoDatos=Acceso_datos::obtenerConexionBD();
     var_dump("UPDATE productos
-    SET categoria='$categ', precio= '$prec', presentacion='$prec'
+    SET categoria='$categ', precio= '$prec', presentacion='$pres'
     WHERE nombre='$nom';");
     $consulta=$accesoDatos->prepararConsulta("UPDATE productos
                                                 SET categoria='$categ', precio= '$prec', presentacion='$prec'
