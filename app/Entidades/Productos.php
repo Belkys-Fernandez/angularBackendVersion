@@ -53,7 +53,7 @@ public function buscarEliminar($nombre){
 }
 
 public function buscarActualizacion($producto){
-    var_dump($producto)
+    var_dump($producto);
     $nom=$producto->nombre;
     $categ=$producto['categoria'];
     $prec=$producto['precio'];
