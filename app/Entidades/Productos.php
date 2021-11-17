@@ -63,7 +63,7 @@ public function buscarActualizacion($producto){
     SET categoria='$categ', precio= '$prec', presentacion='$pres'
     WHERE nombre='$nom';");
     $consulta=$accesoDatos->prepararConsulta("UPDATE productos
-                                                SET categoria='$categ', precio= '$prec', presentacion='$prec'
+                                                SET categoria='$categ', precio= '$prec', presentacion='$pres'
                                                 WHERE nombre='$nom';");
     $consulta->execute();
     return $consulta->fetchAll(PDO::FETCH_CLASS,'Productos'); 
